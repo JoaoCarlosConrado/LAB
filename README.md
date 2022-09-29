@@ -1,2 +1,2 @@
 # LAB
-Códigos da disciplina Laboratório de Programação
+Códigos da disciplina Laboratório de Programação ministrada pelo prof. Márcio Costa.
