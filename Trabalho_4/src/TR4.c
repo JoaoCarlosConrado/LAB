@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ordvetor.h"
+#include "../lib/ordvetor.h"
 
 typedef int COMP(void* x, void* y){
 

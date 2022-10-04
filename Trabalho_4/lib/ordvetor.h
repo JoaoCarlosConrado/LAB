@@ -31,7 +31,7 @@ VETORORD* VETORD_create(int n, COMP* compara);
 Adiciona o elemento newelem ao vetor ordenado, na posicao correta se for possível
 ainda incluir o elemento (se existe espaco no vetor).
 
-@param vetor: o vetor ordenado a ter o elemento incluÃ­do
+@param vetor: o vetor ordenado a ter o elemento incluído
 @param newelem: o elemento a ser adicionado
 */
 void VETORD_add(VETORORD* vetor, void* newelem);
