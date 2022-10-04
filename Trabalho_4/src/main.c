@@ -2,3 +2,9 @@
 #include <stdlib.h>
 #include "../lib/ordvetor.h"
 
+int main(){
+
+    
+
+    return 0;
+}
