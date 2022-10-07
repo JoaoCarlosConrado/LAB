@@ -7,6 +7,7 @@ HEAP* HEAP_create(int n, COMP* compara){
     heap->comparador = compara;
     heap->N = n;
     heap->P = 0;
+    heap->elems = malloc(n *sizeof(void *));
     for(int i = 0;i<n;i++){
         heap->elems[i] = NULL;
     }
@@ -23,7 +24,7 @@ void HEAP_add(HEAP* vetor, void* newelem){
             vetor->elems[vetor->P] = newelem;
             vetor->P++;
             for(int i=vetor->P-1;i>0;i--){
-                if(vetor->comparador(vetor->elems[i], vetor->elems[i/2]) == -1){
+                if(vetor->comparador(vetor->elems[i], vetor->elems[i/2]) == 1){
                     void* aux = vetor->elems[i];
                     vetor->elems[i] = vetor->elems[i/2];
                     vetor->elems[i/2] = aux;
@@ -40,7 +41,7 @@ void* HEAP_remove(HEAP* vetor){
     }
     vetor->P--;
     for(int i=vetor->P-1;i>0;i--){
-        if(vetor->comparador(vetor->elems[i], vetor->elems[i/2]) == -1){
+        if(vetor->comparador(vetor->elems[i], vetor->elems[i/2]) == 1){
             void* aux = vetor->elems[i];
             vetor->elems[i] = vetor->elems[i/2];
             vetor->elems[i/2] = aux;

@@ -7,9 +7,9 @@ int comparacao(void* x, void* y){
     if((int*)x == (int*)y){
         return 0;
     }else if((int*)x > (int*)y){
-        return 1;
-    }else{
         return -1;
+    }else{
+        return 1;
     }
 }
 
@@ -24,7 +24,7 @@ int main(){
     VETORD_add(veto, (int*)4);
     printf("%d removido\n", VETORD_remove(veto));
     for(int i = 0;i<veto->P;i++){
-        printf("Elemento:%d %d\n",i, veto->elems[i]);
+        printf("%d ", veto->elems[i]);
     }
     
     return 0;

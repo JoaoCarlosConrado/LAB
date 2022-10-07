@@ -20,11 +20,11 @@ void VETORD_add(VETORORD* vetor, void* newelem){
                 vetor->elems[vetor->P] = newelem;
                 vetor->P++;
                 break;
-            }else if(vetor->comparador(newelem, vetor->elems[vetor->P-1]) == 1){
+            }else if(vetor->comparador(newelem, vetor->elems[vetor->P-1]) == -1){
                 vetor->elems[vetor->P] = newelem;
                 vetor->P++;
                 break;
-            }else if((vetor->comparador(newelem, vetor->elems[i]) == -1)||(vetor->comparador(newelem, vetor->elems[i]) == 0)){
+            }else if((vetor->comparador(newelem, vetor->elems[i]) == 1)||(vetor->comparador(newelem, vetor->elems[i]) == 0)){
                 for(int j = vetor->P;j>i;j--){
                     vetor->elems[j] = vetor->elems[j-1];
                 }
