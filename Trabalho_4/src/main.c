@@ -15,12 +15,15 @@ int comparacao(void* x, void* y){
 
 int main(){
     COMP* comp = comparacao;
-    VETORORD* veto = VETORD_create(5, comp);
+    VETORORD* veto = VETORD_create(10, comp);
     
     VETORD_add(veto, (int*)5);
     VETORD_add(veto, (int*)2);
     VETORD_add(veto, (int*)3);
     VETORD_add(veto, (int*)1);
+    VETORD_add(veto, (int*)4);
+    VETORD_add(veto, (int*)7);
+    VETORD_add(veto, (int*)8);
     VETORD_add(veto, (int*)4);
     printf("%d removido\n", VETORD_remove(veto));
     for(int i = 0;i<veto->P;i++){

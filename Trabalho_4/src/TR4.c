@@ -13,26 +13,27 @@ VETORORD* VETORD_create(int n, COMP* compara){
     return vetorord;
 }
 
+//Lógica do adicionar feat by Sofia Desidério
 void VETORD_add(VETORORD* vetor, void* newelem){
-    if(vetor->P < vetor->N){
-        for(int i = 0;i<=vetor->P;i++){
-            if(vetor->P == 0){
-                vetor->elems[vetor->P] = newelem;
-                vetor->P++;
-                break;
-            }else if(vetor->comparador(newelem, vetor->elems[vetor->P-1]) == -1){
-                vetor->elems[vetor->P] = newelem;
-                vetor->P++;
-                break;
-            }else if((vetor->comparador(newelem, vetor->elems[i]) == 1)||(vetor->comparador(newelem, vetor->elems[i]) == 0)){
-                for(int j = vetor->P;j>i;j--){
-                    vetor->elems[j] = vetor->elems[j-1];
+    if (vetor->P < vetor->N) {
+        if (vetor->P == 0) {
+            vetor->elems[0] = newelem;
+        }
+        else if (
+                vetor->comparador(newelem, vetor->elems[vetor->P-1]) == -1 ||
+                vetor->comparador(newelem, vetor->elems[vetor->P-1]) == 0
+        ) {
+            vetor->elems[vetor->P] = newelem;
+        }else {
+            for (int i = vetor->P-1; i > -1; i--) {
+                if (vetor->comparador(newelem, vetor->elems[i]) == 1) {
+                    vetor->elems[i+1] = vetor->elems[i];
+                    vetor->elems[i] = newelem;
                 }
-                vetor->elems[i] = newelem;
-                vetor->P++;
-                break;
+                else break;
             }
         }
+        vetor->P++;
     }
 }
 
