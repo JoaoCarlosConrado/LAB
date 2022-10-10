@@ -7,6 +7,7 @@ VETORORD* VETORD_create(int n, COMP* compara){
     vetorord->comparador = compara;
     vetorord->N = n;
     vetorord->P = 0;
+    vetorord->elems = malloc(n * sizeof(void *));
     for(int i = 0;i<n;i++){
         vetorord->elems[i] = NULL;
     }

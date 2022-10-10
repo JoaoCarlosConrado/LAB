@@ -16,28 +16,15 @@ int comparacao(void* x, void* y){
 int main(){
     COMP* comp = comparacao;
     HEAP* veto = HEAP_create(100, comp);
+    int in = 0;
+    while(in >= 0){
+        printf("NUM: ");
+        scanf("%d", &in);
+        if(in >= 0)
+        HEAP_add(veto, (int*)in);
+    }
     
-    HEAP_add(veto, (int*)5);
-    HEAP_add(veto, (int*)2);
-    HEAP_add(veto, (int*)3);
-    HEAP_add(veto, (int*)1);
-    HEAP_add(veto, (int*)4);
-    HEAP_add(veto, (int*)27);
-    HEAP_add(veto, (int*)20);
-    HEAP_add(veto, (int*)10);
-    HEAP_add(veto, (int*)9);
-    HEAP_add(veto, (int*)8);
-    HEAP_add(veto, (int*)6);
-    HEAP_add(veto, (int*)15);
-    HEAP_add(veto, (int*)12);
-    HEAP_add(veto, (int*)18);
-    HEAP_add(veto, (int*)7);
-    HEAP_add(veto, (int*)38);
-    HEAP_add(veto, (int*)16);
-    HEAP_add(veto, (int*)14);
-    HEAP_add(veto, (int*)11);
-    HEAP_add(veto, (int*)30);
-    HEAP_remove(veto);
+    
     //veto->elems[200] = "oi";
     //printf("%d removido\n", HEAP_remove(veto));
     for(int i = 0;i<veto->P;i++){

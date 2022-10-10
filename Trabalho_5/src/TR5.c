@@ -7,7 +7,7 @@ HEAP* HEAP_create(int n, COMP* compara){
     heap->comparador = compara;
     heap->N = n;
     heap->P = 0;
-    heap->elems = malloc(n *sizeof(void *));
+    heap->elems = malloc(n * sizeof(void *));
     for(int i = 0;i<n;i++){
         heap->elems[i] = NULL;
     }

@@ -25,6 +25,9 @@ int main(){
     VETORD_add(veto, (int*)7);
     VETORD_add(veto, (int*)8);
     VETORD_add(veto, (int*)4);
+    
+    printf("%d removido\n", VETORD_remove(veto));
+    printf("%d removido\n", VETORD_remove(veto));
     printf("%d removido\n", VETORD_remove(veto));
     for(int i = 0;i<veto->P;i++){
         printf("%d ", veto->elems[i]);
