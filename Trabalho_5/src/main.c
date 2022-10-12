@@ -4,9 +4,9 @@
 
 
 int comparacao(void* x, void* y){
-    if((int*)x == (int*)y){
+    if(*(int*)x == *(int*)y){
         return 0;
-    }else if((int*)x > (int*)y){
+    }else if(*(int*)x > *(int*)y){
         return -1;
     }else{
         return 1;
@@ -15,20 +15,25 @@ int comparacao(void* x, void* y){
 
 int main(){
     COMP* comp = comparacao;
-    HEAP* veto = HEAP_create(100, comp);
-    int in = 0;
-    while(in >= 0){
+    printf("Tamanho vetor: ");
+    scanf("%d", &t);
+    HEAP* veto = HEAP_create(t, comp);
+    int in[90] = {};
+    int i = 0;
+    while(in[i] >= 0){
         printf("NUM: ");
-        scanf("%d", &in);
-        if(in >= 0)
-        HEAP_add(veto, (int*)in);
+        scanf("%d", &in[i]);
+        if(in[i] >= 0){
+            HEAP_add(veto, &in[i]);
+            i++;
+        }
     }
     
     
     //veto->elems[200] = "oi";
-    //printf("%d removido\n", HEAP_remove(veto));
+    printf("%d removido\n", *(int*)HEAP_remove(veto));
     for(int i = 0;i<veto->P;i++){
-        printf("%d ", veto->elems[i]);
+        printf("%d ", *(int*)veto->elems[i]);
     }
     //printf(veto->elems[200]);
     return 0;

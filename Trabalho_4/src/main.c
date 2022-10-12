@@ -4,9 +4,9 @@
 
 
 int comparacao(void* x, void* y){
-    if((int*)x == (int*)y){
+    if(*(int*)x == *(int*)y){
         return 0;
-    }else if((int*)x > (int*)y){
+    }else if(*(int*)x > *(int*)y){
         return -1;
     }else{
         return 1;
@@ -15,23 +15,27 @@ int comparacao(void* x, void* y){
 
 int main(){
     COMP* comp = comparacao;
-    VETORORD* veto = VETORD_create(10, comp);
-    
-    VETORD_add(veto, (int*)5);
-    VETORD_add(veto, (int*)2);
-    VETORD_add(veto, (int*)3);
-    VETORD_add(veto, (int*)1);
-    VETORD_add(veto, (int*)4);
-    VETORD_add(veto, (int*)7);
-    VETORD_add(veto, (int*)8);
-    VETORD_add(veto, (int*)4);
-    
-    printf("%d removido\n", VETORD_remove(veto));
-    printf("%d removido\n", VETORD_remove(veto));
-    printf("%d removido\n", VETORD_remove(veto));
-    for(int i = 0;i<veto->P;i++){
-        printf("%d ", veto->elems[i]);
+    int t = 0;
+    printf("Tamanho vetor: ");
+    scanf("%d", &t);
+    VETORORD* veto = VETORD_create(t, comp);
+    int in[90] = {};
+    int i = 0;
+    while(in[i] >= 0){
+        printf("NUM: ");
+        scanf("%d", &in[i]);
+        if(in[i] >= 0){
+            VETORD_add(veto, &in[i]);
+            i++;
+        }
     }
     
+    
+    //veto->elems[200] = "oi";
+    printf("%d removido\n", *(int*)VETORD_remove(veto));
+    for(int i = 0;i<veto->P;i++){
+        printf("%d ", *(int*)veto->elems[i]);
+    }
+    //printf(veto->elems[200]);
     return 0;
 }
