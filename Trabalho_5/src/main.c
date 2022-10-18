@@ -15,6 +15,7 @@ int comparacao(void* x, void* y){
 
 int main(){
     COMP* comp = comparacao;
+    int t;
     printf("Tamanho vetor: ");
     scanf("%d", &t);
     HEAP* veto = HEAP_create(t, comp);
